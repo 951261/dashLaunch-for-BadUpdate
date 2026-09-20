@@ -1,4 +1,4 @@
-# Dashlaunch for BadUpdate/ABadAvatar
+# Dashlaunch GUI for BadUpdate/ABadAvatar
 This is a WIP attempt to modify dashlaunch to work on Xbox 360s running BadUpdate and ABadAvatar. This allows you to edit you launch.ini settings (such as pluggins) with the polished Dashlaunch user interface. 
 
 ### Modifications I made:
