@@ -41,7 +41,8 @@ extern "C" BOOL usvrGetPatch(void* bout, int blen)
 
 extern "C" BOOL usvrSetPatch(void* bin, int blen)
 {
-	return Nand::Inst().setPatchData(bin, blen);
+	// return Nand::Inst().setPatchData(bin, blen);
+	return false;
 }
 
 BOOL APIENTRY DllMain(HANDLE hModule, DWORD  dwReason, LPVOID lpReserved )

@@ -19,10 +19,10 @@ INST_DRIVES idAlt [] = {
 	{"Usb",		"Usb1:",	"\\Device\\Mass1\\"},
 	{"Usb",		"Usb2:",	"\\Device\\Mass2\\"},
 	{"Hdd:",	"Hdd:",		"\\Device\\Harddisk0\\Partition1\\"},
-	{"FlashMu:","NandMu:",	"\\Device\\BuiltInMuSfc\\"}, // flash memory unit big block jasper.. maybe others?
-	{"IntMu:",	"SlimMu:",	"\\Device\\BuiltInMuUsb\\Storage\\"}, // flash memory unit slim arcade internal
-	{"MmcMu:",	"MmcMu:",	"\\Device\\BuiltInMuMmc\\Storage\\"}, // flash memory unit slim corona 4g arcade internal
-	{"Sfc:",	"Flash:",	"\\SystemRoot\\"},
+	// {"FlashMu:","NandMu:",	"\\Device\\BuiltInMuSfc\\"}, // flash memory unit big block jasper.. maybe others?
+	// {"IntMu:",	"SlimMu:",	"\\Device\\BuiltInMuUsb\\Storage\\"}, // flash memory unit slim arcade internal
+	// {"MmcMu:",	"MmcMu:",	"\\Device\\BuiltInMuMmc\\Storage\\"}, // flash memory unit slim corona 4g arcade internal
+	// {"Sfc:",	"Flash:",	"\\SystemRoot\\"},
 	{"Mu:",		"Mu0:",		"\\Device\\Mu0\\"},
 	{"Mu:",		"Mu1:",		"\\Device\\Mu1\\"},
 	{"UsbMu:",	"UsbMu0:",	"\\Device\\Mass0PartitionFile\\Storage\\"},

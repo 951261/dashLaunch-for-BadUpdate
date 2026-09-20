@@ -204,6 +204,7 @@ copy /b $(OutDir)$(ProjectName).xex $(SolutionDir)embed\$(ProjectName).xex</Comm
     <ClCompile Include="util.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\svnversion.h" />
     <ClInclude Include="logging.h" />
     <ClInclude Include="nand.h" />
     <ClInclude Include="nandsvr.h" />

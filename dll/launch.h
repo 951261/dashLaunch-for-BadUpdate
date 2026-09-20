@@ -96,7 +96,7 @@ typedef struct _DnsBlocks {
 /* defines, enums and names for the devices launch will be using */
 #define MOUNT_HDD			3
 #define MOUNT_TRIN_INTMU	5
-#define MOUNT_MAX_INI		8
+#define MOUNT_MAX_INI		7 // updated
 
 #define DUMP_PATH		3
 #define MOUNT_DUMP		"dlcrash:"

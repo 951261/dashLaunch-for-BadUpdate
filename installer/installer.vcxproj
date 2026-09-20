@@ -53,6 +53,7 @@
     <LinkIncremental>false</LinkIncremental>
     <PreBuildEventUseInBuild>false</PreBuildEventUseInBuild>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
+    <RemoteRoot>Hdd1:\Development\Dashlaunch\$(SolutionName)</RemoteRoot>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
     <LinkIncremental>false</LinkIncremental>
@@ -132,6 +133,7 @@ cd..</Command>
       <DeploymentFiles>$(RemoteRoot)=$(ImagePath)</DeploymentFiles>
       <DeploymentType>CopyToHardDrive</DeploymentType>
       <ExcludedFromBuild>false</ExcludedFromBuild>
+      <Progress>true</Progress>
     </Deploy>
     <PreBuildEvent>
       <Command>cd Media

@@ -21,10 +21,10 @@ MOUNTS mnt[] = {
 	{"fHddAux:","\\Device\\Harddisk0\\SystemAuxPartition", FALSE},
 
 	// nand devices
-	{"fFlash:","\\Device\\Flash", FALSE},
-	{"fNandMu:","\\Device\\BuiltInMuSfc", FALSE},
-	{"fNandMuSys:","\\Device\\BuiltInMuSfcSystem", FALSE},
-	{"fNandMuSysEx:","\\Device\\FileSystemExtPartition2", FALSE},
+	// {"fFlash:","\\Device\\Flash", FALSE},
+	// {"fNandMu:","\\Device\\BuiltInMuSfc", FALSE},
+	// {"fNandMuSys:","\\Device\\BuiltInMuSfcSystem", FALSE},
+	// {"fNandMuSysEx:","\\Device\\FileSystemExtPartition2", FALSE},
 
 	// slim internal mu
 	{"fIntMu:","\\Device\\BuiltInMuUsb\\Storage", FALSE},

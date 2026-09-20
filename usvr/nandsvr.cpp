@@ -580,6 +580,10 @@ BOOL NandSvr::doRecFile(char* cmd)
 	const char* rep = noreply;
 	BOOL ret = FALSE;
 	HANDLE hFile = INVALID_HANDLE_VALUE;
+
+	// don't allow writing 
+	/*
+
 	if(IsFileExist(cmd))
 		DeleteFileA(cmd);
 	hFile = CreateFile(cmd, GENERIC_WRITE, 0, NULL, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
@@ -614,6 +618,7 @@ BOOL NandSvr::doRecFile(char* cmd)
 	}
 	else
 		DbgLog::GetInstance().log("socket error receiving file size!\n");
+	*/
 	return ret;
 }
 
@@ -642,6 +647,9 @@ BOOL NandSvr::doCompatFormat(void)
 BOOL NandSvr::doMakeDir(char* path)
 {
 	BOOL ret = FALSE;
+
+	// Dissable creating new folders. I DO NOT want to take any chances
+	/*
 	const char* rep = noreply;
 	if(CreateDirectory(path, NULL) != 0)
 		rep = okreply;
@@ -649,12 +657,15 @@ BOOL NandSvr::doMakeDir(char* path)
 		DbgLog::GetInstance().log("error %d creating directory %s\n", GetLastError(), path);
 	if(SocketSendDataFixedSz((void*)rep, 2))
 		ret = TRUE;
+	*/
 	return ret;
 }
+
 
 BOOL NandSvr::doWriteFlash(void)
 {
 	BOOL ret = FALSE;
+	/*
 	DWORD dwSize = 0;
 	if(SocketReceiveData(&dwSize, 4, NULL) != -1)
 	{
@@ -676,9 +687,10 @@ BOOL NandSvr::doWriteFlash(void)
 	}
 	else
 		DbgLog::GetInstance().log("socket error receiving file size!\n");
-
+	*/
 	return ret;
 }
+
 
 BOOL NandSvr::doReadFlash(void)
 {
@@ -736,11 +748,12 @@ BOOL NandSvr::doReadBlock(char* arg, int cmdlen)
 	return ret;
 }
 
+
 // writeblock args BLOCK NUMBLOCKS
 BOOL NandSvr::doWriteBlock(char* arg, int cmdlen)
 {
 	BOOL ret = FALSE;
-	DWORD block = 0, blnum = 0;
+/*	DWORD block = 0, blnum = 0;
 	if(parseReadWriteBlock(arg, &block, &blnum, cmdlen))
 	{
 		DWORD sz;
@@ -766,12 +779,14 @@ BOOL NandSvr::doWriteBlock(char* arg, int cmdlen)
 				ret = TRUE;
 		}
 	}
+		*/
 	return ret;
 }
 
 BOOL NandSvr::doEraseBlock(char* arg, int cmdlen)
 {
 	BOOL ret = FALSE;
+	/*
 	DWORD block = 0, blnum = 0;
 	if(parseReadWriteBlock(arg, &block, &blnum, cmdlen))
 	{
@@ -781,8 +796,10 @@ BOOL NandSvr::doEraseBlock(char* arg, int cmdlen)
 		if(SocketSendDataFixedSz(resp, 2))
 			ret = TRUE;
 	}
+	*/
 	return ret;
 }
+
 
 BOOL NandSvr::doGetBootloaders(void)
 {
@@ -797,9 +814,11 @@ BOOL NandSvr::doGetBootloaders(void)
 	return ret;
 }
 
+
 BOOL NandSvr::doWritePatch(void)
 {
 	BOOL ret = FALSE;
+	/*
 	DWORD sz;
 	if(SocketReceiveData(&sz, 4, NULL) == 4)
 	{
@@ -817,8 +836,10 @@ BOOL NandSvr::doWritePatch(void)
 		if(SocketSendDataFixedSz(resp, 2))
 			ret = TRUE;
 	}
+	*/
 	return ret;
 }
+
 
 BOOL NandSvr::doSendVer(void)
 {

@@ -255,7 +255,7 @@ void FtpdSetDevices()
 		}
 		FtpdAddStaticDevice(ftp.UserName[i].c_str(), "xcon", "xcon");
 		FtpdAddStaticDevice(ftp.UserName[i].c_str(), "SysEx", "xsep");
-		FtpdAddStaticDevice(ftp.UserName[i].c_str(), "Flash", "media");
+		// FtpdAddStaticDevice(ftp.UserName[i].c_str(), "Flash", "media"); // don't allow writes to flash
 	}
 }
 

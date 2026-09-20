@@ -216,7 +216,7 @@ HRESULT InstallerMain::OnInit(XUIMessageInit* pInitData, BOOL& bHandled)
 		lDbgPrint("OnInit: setting update mode\n");
 #endif
 		SetCurrentScene(SCENE_NONE);
-		Install(TRUE);
+		// Install(TRUE);
 	}
 	bHandled = TRUE;
 #ifdef LOG_EXTRA_OUT
@@ -621,7 +621,10 @@ HRESULT InstallerMain::OnNotifyPress(HXUIOBJ hObjPressed, BOOL& bHandled)
 				else if(hObjPressed == m_MiscUnload)
 				{
 					LoadUnload();
-				}
+				} /*
+
+				// Dissable any NAND writes
+
 				else if(hObjPressed == m_MiscUninstall)
 				{
 					if(m_isInstalled)
@@ -639,7 +642,7 @@ HRESULT InstallerMain::OnNotifyPress(HXUIOBJ hObjPressed, BOOL& bHandled)
 				{
 					FilerData::GetInstance().Init(INVALID_ITEM, NULL, FILER_SEARCH_PATH, FALSE);
 					SetCurrentScene(SCENE_PATHBROWSER);
-				}
+				} */
 				else if(hObjPressed == m_MiscQuit)
 				{
 					XboxUtil::GetInstance().QuitToDefault();
@@ -667,7 +670,7 @@ HRESULT InstallerMain::OnNotifyPress(HXUIOBJ hObjPressed, BOOL& bHandled)
 			case SCENE_INFO:
 				if(hObjPressed == m_InfoSaveSmc)
 				{
-					SysInfo::GetInstance().SaveSmcChanges();
+					// SysInfo::GetInstance().SaveSmcChanges();
 					//SetCurrentScene(SCENE_PREVIOUS);
 				}
 				else if ((hObjPressed == m_CpuFanCheck)||(hObjPressed == m_GpuFanCheck))
@@ -811,9 +814,9 @@ VOID InstallerMain::SetTitleText(VOID)
 {
 	WCHAR titlTemp[128];
 #ifdef RELEASE_IS_BETA
-	wsprintfW(titlTemp, L"DashLaunch V%d.%02d (%d) BETA", VER_MAJ, VER_MIN, VER_SVN);
+	wsprintfW(titlTemp, L"DashLaunch for BadUpdate V%d.%02d BETA", VER_MAJ, VER_MIN, VER_SVN);
 #else
-	wsprintfW(titlTemp, L"DashLaunch V%d.%02d (%d)", VER_MAJ, VER_MIN, VER_SVN);
+	wsprintfW(titlTemp, L"DashLaunch for BadUpdate V%d.%02d (%d)", VER_MAJ, VER_MIN, VER_SVN);
 #endif
 	m_TitleText.SetText(titlTemp);
 }
@@ -841,24 +844,24 @@ VOID InstallerMain::UpdateTemps(VOID)
 			gpu = (gpu*1.8)+32;
 			edram = (edram*1.8)+32;
 			mb = (mb*1.8)+32;
-			wsprintfW(outTemp, L"CPU: %3.1f°F", cpu);
+			wsprintfW(outTemp, L"CPU: %3.1fï¿½F", cpu);
 			m_TempCPU.SetText(outTemp);
-			wsprintfW(outTemp, L"GPU: %3.1f°F", gpu);
+			wsprintfW(outTemp, L"GPU: %3.1fï¿½F", gpu);
 			m_TempGPU.SetText(outTemp);
-			wsprintfW(outTemp, L"MOBO: %3.1f°F", mb);
+			wsprintfW(outTemp, L"MOBO: %3.1fï¿½F", mb);
 			m_TempMOBO.SetText(outTemp);
-			wsprintfW(outTemp, L"EDRAM: %3.1f°F", edram);
+			wsprintfW(outTemp, L"EDRAM: %3.1fï¿½F", edram);
 			m_TempEDRAM.SetText(outTemp);
 		}
 		else
 		{
-			wsprintfW(outTemp, L"CPU: %3.1f°C", cpu);
+			wsprintfW(outTemp, L"CPU: %3.1fï¿½C", cpu);
 			m_TempCPU.SetText(outTemp);
-			wsprintfW(outTemp, L"GPU: %3.1f°C", gpu);
+			wsprintfW(outTemp, L"GPU: %3.1fï¿½C", gpu);
 			m_TempGPU.SetText(outTemp);
-			wsprintfW(outTemp, L"MOBO: %3.1f°C", mb);
+			wsprintfW(outTemp, L"MOBO: %3.1fï¿½C", mb);
 			m_TempMOBO.SetText(outTemp);
-			wsprintfW(outTemp, L"EDRAM: %3.1f°C", edram);
+			wsprintfW(outTemp, L"EDRAM: %3.1fï¿½C", edram);
 			m_TempEDRAM.SetText(outTemp);
 		}
 	}
@@ -878,6 +881,7 @@ VOID InstallerMain::UpdateHardware(VOID)
 	m_HwType.SetText(outTemp);
 }
 
+/*
 VOID InstallerMain::Uninstall(VOID)
 {
 	if(Nand::GetInstance().Uninstall())
@@ -897,6 +901,7 @@ VOID InstallerMain::Uninstall(VOID)
 	if(m_requiresReboot)
 		ShowPopup(Strings::GetInstance().Look(L"shutdown"), NULL, Strings::GetInstance().Look(L"ok"), NULL, TRUE, popupReboot);
 }
+*/
 
 VOID InstallerMain::UpdateInstallStatus(VOID)
 {
@@ -967,7 +972,7 @@ VOID InstallerMain::popupPatches2(PVOID obj, DWORD opt) // 0 = install, 2 = canc
 	InstallerMain* pOb = (InstallerMain*)obj;
 	if(opt == 0)
 	{
-		Nand::GetInstance().UpdatePatches();
+		// Nand::GetInstance().UpdatePatches();
 		pOb->UpdateInstallStatus();
 		pOb->m_requiresReboot = TRUE;
 	}
@@ -982,7 +987,7 @@ VOID InstallerMain::popupPatches(PVOID obj, DWORD opt) // 0 = install, 2 = cance
 	InstallerMain* pOb = (InstallerMain*)obj;
 	if(opt == 0)
 	{
-		Nand::GetInstance().UpdatePatches();
+		// Nand::GetInstance().UpdatePatches();
 		pOb->UpdateInstallStatus();
 		pOb->m_requiresReboot = TRUE;
 	}
@@ -1003,7 +1008,7 @@ VOID InstallerMain::popupInstall(PVOID obj, DWORD opt) //0 = install/update, 1 =
 		{
 			pOb->LoadUnload();
 		}
-		Nand::GetInstance().UpdateLaunchXex();
+		// Nand::GetInstance().UpdateLaunchXex();
 		pOb->UpdateInstallStatus();
 		//WCHAR txt[40];
 		//wsprintfW(txt, L"run: %d reboot: %d patches: %d", pOb->m_isRunning, pOb->m_requiresReboot, pOb->m_arePatchesAvail);
@@ -1028,6 +1033,7 @@ VOID InstallerMain::popupInstall(PVOID obj, DWORD opt) //0 = install/update, 1 =
 		pOb->SetCurrentScene(pOb->m_currScene); // cancel
 }
 
+/*
 VOID InstallerMain::Install(BOOL BootTime)
 {
 	WCHAR utxt[256];
@@ -1059,6 +1065,7 @@ VOID InstallerMain::Install(BOOL BootTime)
 		ShowPopup(utxt, leftbut, midbut, rightbut, !BootTime, popupInstall);
 	}
 }
+*/
 
 VOID InstallerMain::LoadUnload(VOID)
 {

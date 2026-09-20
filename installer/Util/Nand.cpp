@@ -120,6 +120,7 @@ VOID Nand::Init()
 	}
 }
 
+/*
 NTSTATUS Nand::DoWriteFlashFile(BYTE* buffer, char* fileName, DWORD len)
 {
 	HANDLE hFlashFile;
@@ -228,8 +229,11 @@ BOOL Nand::Uninstall(VOID)
 	return !(XboxUtil::GetInstance().IsFileExist("sysmedia:\\lhelper.xex")||XboxUtil::GetInstance().IsFileExist("sysmedia:\\launch.xex"));
 }
 
+*/
+
 BOOL Nand::WriteLhelperToFlash(VOID)
 {
+	/*
 	PVOID data;
 	DWORD len;
 	if(Resource::GetInstance().GetEmbeddedFile("lhelper", &data, &len))
@@ -239,8 +243,11 @@ BOOL Nand::WriteLhelperToFlash(VOID)
 			return TRUE;
 		}
 	}
+		*/
 	return FALSE;
 }
+
+/*
 
 BOOL Nand::WriteLaunchToFlash(VOID)
 {
@@ -268,6 +275,7 @@ BOOL Nand::UpdateLaunchXex(VOID)
 	}
 	return FALSE;
 }
+*/
 
 VOID Nand::SetPatchNames(VOID)
 {
@@ -342,6 +350,7 @@ VOID Nand::CheckPatches(VOID)
 // 		lDbgPrint("No patch info!\n");
 }
 
+/*
 BOOL Nand::UpdatePatches(VOID)
 {
 	if(w_PatchesNeeded)
@@ -354,3 +363,4 @@ BOOL Nand::UpdatePatches(VOID)
 	}
 	return FALSE;
 }
+*/

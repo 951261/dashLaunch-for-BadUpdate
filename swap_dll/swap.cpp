@@ -371,7 +371,7 @@ DWORD XamSwapDiscHook(DWORD ucNextDisc, PHANDLE hSwapComplete, PXSWAPDISC_ERROR_
 		if(swapComplete)
 		{
 			//DbgPrint("setting swap complete\n");
-			ret = KeSetEvent(hSwapComplete, 1, FALSE);
+			ret = KeSetEvent((PKEVENT)hSwapComplete, 1, FALSE);
 			//DbgPrint("setevent returns: %x\n", ret);
 			ObDereferenceObject(hSwapComplete);
 		}

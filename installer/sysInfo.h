@@ -10,7 +10,7 @@ public:
 	VOID Init(CXuiScene sscene, CXuiControl ssave);
 	HRESULT SliderChange(HXUIOBJ hObjSource, int newValue);
 	HRESULT CheckChange(HXUIOBJ hObjSource);
-	VOID SaveSmcChanges(VOID);
+	// VOID SaveSmcChanges(VOID);
 
 private:
 	CXuiScene selfScene;

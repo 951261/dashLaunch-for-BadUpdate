@@ -66,13 +66,13 @@ public:
 	BYTE* getPatchDataBuf(DWORD* sz){*sz = w_currPatchSize; return w_currPatchData;}
 	BYTE* getBlModBuf(DWORD* sz){*sz = w_BlModSz; return w_BlMod;}
 	BOOL getPatchData(void* bout, int blen);
-	BOOL setPatchData(void* bin, int blen);
+	// BOOL setPatchData(void* bin, int blen);
 
 	BOOL GetExtras(void);
 	PBYTE readBlocks(DWORD block, int numBlocks, DWORD* osz);
 	PBYTE getBootloaders(DWORD* osz);
-	BOOL writeBlocks(PBYTE buf, DWORD block, int numBlocks);
-	BOOL eraseBlocks(DWORD block, int numBlocks);
+	// BOOL writeBlocks(PBYTE buf, DWORD block, int numBlocks);
+	// BOOL eraseBlocks(DWORD block, int numBlocks);
 	BOOL nandStartup(void);
 	void nandShutdown(void);
 	DWORD workerThread(void);
@@ -88,12 +88,12 @@ private:
 	BOOL BlockHasData(PBYTE data);
 	DWORD GetFlashFsSize(void);
 	DWORD ReadFlash(DWORD offset, PBYTE buf, DWORD len, DWORD readSize, PDWORD pbRead);
-	DWORD WriteFlash(DWORD offset, PBYTE buf, DWORD len, DWORD writeSize, PDWORD bAvail);
+	// DWORD WriteFlash(DWORD offset, PBYTE buf, DWORD len, DWORD writeSize, PDWORD bAvail);
 	BOOL ReadFullFlash(void);
-	BOOL WriteFullFlash(void);
+	// BOOL WriteFullFlash(void);
 	DWORD readBlock(PBYTE data, DWORD block);
-	DWORD eraseBlock(DWORD block);
-	DWORD writeBlock(PBYTE data, DWORD block);
+	// DWORD eraseBlock(DWORD block);
+	// DWORD writeBlock(PBYTE data, DWORD block);
 	void PopulateBbList(void);
 	BOOL updatePatchData(void);
 	DWORD getU32(PBYTE data);

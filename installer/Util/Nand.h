@@ -20,8 +20,8 @@ class Nand
 public:	
 	static Nand& GetInstance(){static Nand singleton; return singleton;}
 	VOID Init(VOID);
-	NTSTATUS WriteFileToFlash(BYTE* buffer, char* fileName, DWORD len);
-	NTSTATUS DeleteFileFlash(char* fileName);
+	// NTSTATUS WriteFileToFlash(BYTE* buffer, char* fileName, DWORD len);
+	// NTSTATUS DeleteFileFlash(char* fileName);
 
 	BOOL IsJtag(VOID){return w_IsJtag;}
 	BOOL IsPatchUpdateAvail(VOID){return w_PatchesNeeded;}
@@ -29,11 +29,11 @@ public:
 	PWCHAR GetFlashModelWchar(VOID);
 	PWCHAR GetHardwareModelWchar(VOID);
 	PWCHAR GetFlashTypeWchar(VOID);
-	BOOL Uninstall(VOID);
+	// BOOL Uninstall(VOID);
 	BOOL WriteLhelperToFlash(VOID);
-	BOOL WriteLaunchToFlash(VOID);
-	BOOL UpdateLaunchXex(VOID);
-	BOOL UpdatePatches(VOID);
+	// BOOL WriteLaunchToFlash(VOID);
+	// BOOL UpdateLaunchXex(VOID);
+	// BOOL UpdatePatches(VOID);
 
 private:
 	BOOL w_IsJtag;
@@ -52,7 +52,7 @@ private:
 
 	VOID SetPatchNames(VOID);
 	VOID CheckPatches(VOID);
-	NTSTATUS DoWriteFlashFile(BYTE* buffer, char* fileName, DWORD len);
+	// NTSTATUS DoWriteFlashFile(BYTE* buffer, char* fileName, DWORD len);
 
 	Nand();
 	~Nand() {}

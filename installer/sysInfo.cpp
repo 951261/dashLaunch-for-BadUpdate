@@ -267,6 +267,7 @@ HRESULT SysInfo::CheckChange(HXUIOBJ hObjSource)
 	return S_OK;
 }
 
+/*
 VOID SysInfo::SaveSmcChanges(VOID)
 {
 	//CXuiSlider m_CpuFanSlide;
@@ -322,3 +323,4 @@ VOID SysInfo::SaveSmcChanges(VOID)
 		}
 	}
 }
+*/

@@ -224,6 +224,7 @@ DWORD Nand::ReadFlash(DWORD offset, PBYTE buf, DWORD len, DWORD readSize, PDWORD
 // and writes must occur in 1block chunks (or less, but you cannot write multiple times to the same block)
 // system takes care of spare (lba/edc) and relocation if necessary
 // offset addresses are without spare included
+/*
 DWORD Nand::WriteFlash(DWORD offset, PBYTE buf, DWORD len, DWORD writeSize, PDWORD bAvail)
 {
 	HANDLE hFile;
@@ -270,6 +271,7 @@ DWORD Nand::WriteFlash(DWORD offset, PBYTE buf, DWORD len, DWORD writeSize, PDWO
 	NtClose(hFile);
 	return tWrote;
 }
+*/
 
 BOOL Nand::enumerateNand(void)
 {
@@ -466,6 +468,7 @@ DWORD Nand::readBlock(PBYTE data, DWORD block)
 	return 0;
 }
 
+/*
 DWORD Nand::eraseBlock(DWORD block)
 {
 	DWORD sta;
@@ -515,6 +518,7 @@ DWORD Nand::writeBlock(PBYTE data, DWORD block)
 	}
 	return 0;
 }
+*/
 
 PBYTE Nand::readBlocks(DWORD block, int numBlocks, DWORD* osz)
 {
@@ -591,6 +595,7 @@ BOOL Nand::BlockHasData(PBYTE data)
 	return FALSE;
 }
 
+/*
 BOOL Nand::writeBlocks(PBYTE buf, DWORD block, int numBlocks)
 {
 	DWORD sz = (numBlocks*nandInfo.blockSize);
@@ -772,6 +777,7 @@ BOOL Nand::WriteFullFlash(void)
 // 	DbgLog::GetInstance().log("flash write complete\n");
 	return TRUE;
 }
+*/
 
 BOOL Nand::ReadFullFlash(void)
 {
@@ -992,6 +998,7 @@ BOOL Nand::getPatchData(void* bout, int blen)
 	return FALSE;
 }
 
+/*
 BOOL Nand::setPatchData(void* bin, int blen)
 {
 	BOOL ret = FALSE;
@@ -1032,6 +1039,7 @@ BOOL Nand::setPatchData(void* bin, int blen)
 	}
 	return ret;
 }
+*/
 
 DWORD Nand::getU32(PBYTE data)
 {
@@ -1578,12 +1586,12 @@ DWORD Nand::workerThread(void)
 			ReadFullFlash();
 // 			DbgLog::GetInstance().log("worker read done\n");
 		}
-		else if(workerState == WSTM_WRITE)
-		{
-// 			DbgLog::GetInstance().log("worker write\n");
-			WriteFullFlash();
-// 			DbgLog::GetInstance().log("worker write done\n");
-		}
+// 		else if(workerState == WSTM_WRITE)
+// 		{
+// // 			DbgLog::GetInstance().log("worker write\n");
+// 			WriteFullFlash();
+// // 			DbgLog::GetInstance().log("worker write done\n");
+// 		}
 		else if(workerState == WSTM_BBLIST)
 		{
 			if(IS_MMC_DEVICE == FALSE)

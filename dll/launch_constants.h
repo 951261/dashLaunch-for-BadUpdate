@@ -135,14 +135,15 @@ DRIVE_LIST drives[] = {
 	{"FlashMu:",1,	"NandMu:",	"\\Device\\BuiltInMuSfc\\"}, // 4 flash memory unit big block jasper.. maybe others?
 	{"IntMu:",	1,	"SlimMu:",	"\\Device\\BuiltInMuUsb\\Storage\\"}, // 5 flash memory unit slim arcade internal
 	{"MmcMu:",	1,	"MmcMu:",	"\\Device\\BuiltInMuMmc\\Storage\\"}, // 6 flash memory unit slim corona 4g arcade internal
-	{"Sfc:",	1,	"Flash:",	"\\SystemRoot\\"}, // 7
-	{"Mu:",		2,	"Mu0:",		"\\Device\\Mu0\\"}, // 8
-	{"Mu:",		1,	"Mu1:",		"\\Device\\Mu1\\"}, // 9
-	{"UsbMu:",	3,	"UsbMu0:",	"\\Device\\Mass0PartitionFile\\Storage\\"}, // 10
-	{"UsbMu:",	2,	"UsbMu1:",	"\\Device\\Mass1PartitionFile\\Storage\\"}, // 11
-	{"UsbMu:",	1,	"UsbMu2:",	"\\Device\\Mass2PartitionFile\\Storage\\"}, // 12
-	{"Xfer:",	1,	"Xfer:",	"\\Device\\TransferCable\\"}, // 13
-	{"Dvd:",	1,	"Dvd:",		"\\Device\\Cdrom0\\"}, // 14
+	// {"Sfc:",	1,	"Flash:",	"\\SystemRoot\\"}, // 7
+
+	{"Mu:",		2,	"Mu0:",		"\\Device\\Mu0\\"}, // 7
+	{"Mu:",		1,	"Mu1:",		"\\Device\\Mu1\\"}, // 8
+	{"UsbMu:",	3,	"UsbMu0:",	"\\Device\\Mass0PartitionFile\\Storage\\"}, // 9
+	{"UsbMu:",	2,	"UsbMu1:",	"\\Device\\Mass1PartitionFile\\Storage\\"}, // 10
+	{"UsbMu:",	1,	"UsbMu2:",	"\\Device\\Mass2PartitionFile\\Storage\\"}, // 11
+	{"Xfer:",	1,	"Xfer:",	"\\Device\\TransferCable\\"}, // 12
+	{"Dvd:",	1,	"Dvd:",		"\\Device\\Cdrom0\\"}, // 13
 };
 #define MOUNT_MAX_ITEMS		(sizeof(drives)/sizeof(DRIVE_LIST))
 

@@ -179,7 +179,10 @@ VOID IniData::WriteToFile(DWORD idx)
 		{
 			SI_Error serr = ini.LoadData((const char*)addr, sz);
 			//lDbgPrint("load embedded ini returns 0x%x\n", serr);
+		} else {
+			return; // do not write to flash memory
 		}
+		
 		//lDbgPrint("writing to file\n");
 		XboxUtil::GetInstance().MountPath(INIDRIVEMOUNT, INI_GET_MOUNTPOINT(idx));
 		// apply current settings
@@ -250,7 +253,7 @@ VOID IniData::WriteToFile(DWORD idx)
 					break;
 			}
 		}
-		if(XboxUtil::GetInstance().IsFileExist(INIPATH))
+		if(XboxUtil::GetInstance().IsFileExist(INIPATH) && !dlDrives::GetInstance().IsDriveFlash(idx))
 			DeleteFileA(INIPATH);
 		// write to the desired disk
 		if(dlDrives::GetInstance().IsDriveFlash(idx))
@@ -258,7 +261,7 @@ VOID IniData::WriteToFile(DWORD idx)
 			string cst;
 			ini.Save(cst);
 			//lDbgPrint("string len: %d cstr len %d\n", cst.size(), strlen(cst.c_str()));
-			Nand::GetInstance().WriteFileToFlash((PBYTE)cst.c_str(), "launch.ini", cst.size());
+			// Nand::GetInstance().WriteFileToFlash((PBYTE)cst.c_str(), "launch.ini", cst.size());
 		}
 		else
 			ini.SaveFile(INIPATH);
@@ -293,7 +296,7 @@ VOID IniData::ReadFromFile(DWORD idx)
 VOID IniData::RemoveFile(DWORD idx)
 {
 	XboxUtil::GetInstance().MountPath(INIDRIVEMOUNT, INI_GET_MOUNTPOINT(idx));
-	if(XboxUtil::GetInstance().IsFileExist(INIPATH))
+	if(XboxUtil::GetInstance().IsFileExist(INIPATH) && !dlDrives::GetInstance().IsDriveFlash(idx))
 	{
 		WCHAR infoText[80];
 		if(DeleteFileA(INIPATH))

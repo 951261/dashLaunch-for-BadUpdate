@@ -63,8 +63,8 @@ private:
 	VOID SetTitleText(VOID);
 	VOID UpdateTemps(VOID);
 	VOID UpdateHardware(VOID);
-	VOID Uninstall(VOID);
-	VOID Install(BOOL BootTime);
+	// VOID Uninstall(VOID);
+	// VOID Install(BOOL BootTime);
 	VOID LoadUnload(VOID);
 	VOID ShowHelp();
 	VOID ShowPopup(const PWCHAR messageTxt, const PWCHAR leftTxt, const PWCHAR midTxt, const PWCHAR rightTxt, BOOL opaque, POPUPHANDLER fun);
