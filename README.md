@@ -7,7 +7,7 @@ This is a WIP attempt to modify dashlaunch to work on Xbox 360s running BadUpdat
 * Dissabled the `Install`, `Uninstall`, `Update Patches`, and `Install This` buttons
 
 ### Known Issues
-* launch.xex should be loaded before launching this program. XeUnshacked should handle this automatically.
+* launch.xex should be loaded before launching this program. XeUnshacke should handle this automatically.
 * launch.xex cannot be loaded by this program. If you select the unload option, do not expect to be able to select load without crashing your console
 * It is still possible to modify the flash over FTP! When accessing the console over FTP, no matter what FTP server you are using (Dashlaunch, Aurora, etc...) you should NEVER modify your main flash memory, as it will probably brick your console. 
 
