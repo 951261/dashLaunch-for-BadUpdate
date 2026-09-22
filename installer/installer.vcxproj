@@ -144,6 +144,7 @@ cd..</Command>
     <ImageXex>
       <ConfigurationFile>xex.xml</ConfigurationFile>
       <AdditionalSections>skin=$(ProjectDir)Media\skin.xzp,RO;ini=$(SolutionDir)ReadMe\info_launch.ini,RO</AdditionalSections>
+      <TitleID>95126102</TitleID>
     </ImageXex>
     <PostBuildEvent>
       <Command>xextool -r a -e d -o $(OutDir)default.xex $(OutDir)$(ProjectName).xex</Command>
