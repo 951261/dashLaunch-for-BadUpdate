@@ -7,7 +7,7 @@
 #define VER_SVN _SVNVERSION
 
 #define RELEASE_IS_BETA	1
-#define BETA_VERSION L"1"
+#define BETA_VERSION L"2"
 
 #define INSTALLER_TID	0xFFFF011D
 
