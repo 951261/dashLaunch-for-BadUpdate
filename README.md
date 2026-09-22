@@ -14,7 +14,11 @@ This is a WIP attempt to modify dashlaunch to work on Xbox 360s running BadUpdat
 ### TODO
 * Prompt to save settings upon attempting to exit - I cannot count how many times I have changed a dashlaunch setting, only to press B and have none of my changes saved.
 * Get fan controls working
-* Double check the code to ensure there are no NAND writes I have missed. 
+* Double check the code to ensure there are no NAND writes I have missed.
+
+### Disclaimer
+**USE AT YOUR OWN RISK!**
+While I have done my best to ensure that this will not brick your console, it is still in beta, hence there are NO GARENTEES whatsoever. You have been warned. 
 
 ### Credits
 
