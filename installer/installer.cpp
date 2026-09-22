@@ -183,41 +183,32 @@ HRESULT InstallerMain::OnInit(XUIMessageInit* pInitData, BOOL& bHandled)
 #ifdef LOG_EXTRA_OUT
 	lDbgPrint("OnInit: network first call completed\n");
 #endif
-	if(m_isRunning && m_isUpToDate)
+	
+	DWORD caopt;
+	SetCurrentScene(SCENE_LIVEOPT);
+	if(DashLaunch::GetInstance().canUseImports())
 	{
-		DWORD caopt;
-		SetCurrentScene(SCENE_LIVEOPT);
-		if(DashLaunch::GetInstance().canUseImports())
+#ifdef LOG_EXTRA_OUT
+		lDbgPrint("OnInit: dash launch imports are available\n");
+#endif
+		if(DashLaunch::GetInstance().dlaunchGetOptValByName("calaunch", &caopt))
 		{
-#ifdef LOG_EXTRA_OUT
-			lDbgPrint("OnInit: dash launch imports are available\n");
-#endif
-			if(DashLaunch::GetInstance().dlaunchGetOptValByName("calaunch", &caopt))
+			if(caopt)
 			{
-				if(caopt)
-				{
 #ifdef LOG_EXTRA_OUT
-					lDbgPrint("OnInit: starting in file launch mode\n");
+				lDbgPrint("OnInit: starting in file launch mode\n");
 #endif
-					m_filerIsLaunch = TRUE;
-					FilerData::GetInstance().Init(INVALID_ITEM, NULL, DL_OPT_TYPE_ALLEXEC, TRUE);
-					SetCurrentScene(SCENE_PATHBROWSER);
-				}
+				m_filerIsLaunch = TRUE;
+				FilerData::GetInstance().Init(INVALID_ITEM, NULL, DL_OPT_TYPE_ALLEXEC, TRUE);
+				SetCurrentScene(SCENE_PATHBROWSER);
 			}
 		}
-#ifdef LOG_EXTRA_OUT
-		else
-			lDbgPrint("OnInit: dash launch imports are not available!!\n");
-#endif
 	}
+#ifdef LOG_EXTRA_OUT
 	else
-	{
-#ifdef LOG_EXTRA_OUT
-		lDbgPrint("OnInit: setting update mode\n");
+		lDbgPrint("OnInit: dash launch imports are not available!!\n");
 #endif
-		SetCurrentScene(SCENE_NONE);
-		// Install(TRUE);
-	}
+
 	bHandled = TRUE;
 #ifdef LOG_EXTRA_OUT
 	lDbgPrint("OnInit: complete\n");
