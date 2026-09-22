@@ -2,7 +2,7 @@
 This is a WIP attempt to modify dashlaunch to work on Xbox 360s running BadUpdate and ABadAvatar. This allows you to edit you launch.ini settings (such as pluggins) with the polished Dashlaunch user interface. 
 
 ### Modifications I made:
-* Removed all NAND modifying code to prevent bricking the console
+* Removed all NAND modifying code (apart from FTP) to prevent bricking the console
 * Prevent the installation prompt from being displayed on startup
 * Dissabled the `Install`, `Uninstall`, `Update Patches`, and `Install This` buttons
 
